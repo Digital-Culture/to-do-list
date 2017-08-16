@@ -1,0 +1,90 @@
+//Define main colour 
+@main-font-family:lato, helvetica,sans-serif;
+@main-color: #1ca4bf;
+@header-bg:lighten(@main-color,15%);
+@header-color:lighten(@main-color,30%);
+@header-height:5%;
+
+// Functions
+.reset(){
+    margin:0;
+    padding:0;
+}
+
+.fullheight(){
+    height:100vh;
+}
+
+@footer-color:#6e069b;
+@footer-bg:darken(@footer-color,5%);
+
+//styles
+html,body{
+        .fullheight;
+}
+
+body{
+    .reset;
+     font-family:@main-font-family;
+}
+.appview{
+    .fullheight;
+    display:flex;
+    flex-direction:column;
+ 
+}
+
+header{
+    height:@header-height; 
+    background-color:@header-bg;
+    color:@header-color;
+    h1{
+        .reset;
+        text-align:center;
+    }
+}
+
+.container{
+    flex:1 0 auto;
+}
+
+footer{
+    height:@header-height;
+    background-color:@footer-bg;
+    margin-bottom: 20px;
+}
+
+#task-form{
+    display:flex;
+    flex-direction:row;
+    #task-input{
+        flex:1 0 auto;
+        padding:10px;
+        background-color:#8ee3f2;
+        border:1px solid transparent;
+        color:darken(@footer-color,15%);
+    }
+    .add-button{
+        width:50px;
+        background-color:darken(@main-color,15%);
+        color:@header-color;
+        border:1px solid transparent;
+    }
+}
+
+#task-list{
+    list-style:none;
+    .reset;
+    li{
+        font-size:22px;
+        font-weight:200;
+        color:lighten(@main-color,15%);
+        padding:15px 10px;
+        border-bottom:1px solid lighten(@main-color,55%);
+    }
+    li[data-status='1']{
+        text-decoration:line-through;
+        text-decoration-color:lighten(@main-color,30%);
+        color:lighten(@main-color,45%);
+    }
+}
