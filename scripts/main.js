@@ -20,7 +20,24 @@ window.addEventListener('load',function(){
     //get a reference to task-list am element
     const TaskList = document.getElementById('task-list');
     TaskList.addEventListener('click',changeTaskStatus);
+    const Button = document.getElementById('remove');
+    Button.addEventListener('click',removeDone);
 });
+
+function removeDone(){
+    let count = TaskArray.length-1;
+    for(let i=count; i>=0; i--){
+        let item = TaskArray[i];
+        if(item.status == 1){
+            //splice removes item from array
+            TaskArray.splice(i,1);
+            saveTasks();
+            renderTaskList();
+        }
+    }
+    toggleShowButton();
+}
+
 
 function onSubmit(event){
     //cancel event default
@@ -58,8 +75,8 @@ function renderTaskList(){
         let taskobj = TaskArray[i];
         createNewTask(taskobj);
     }
+    toggleShowButton();
 }
-
 
 function changeTaskStatus(event){
     //console.log(event.target);
@@ -100,5 +117,23 @@ function loadTasks(){
             TaskArray = JSON.parse(data);
             renderTaskList();
         }
+    }
+}
+
+function toggleShowButton(){
+    let show = false;
+    let count = TaskArray.length;
+    //loop through the array to find items with status=1
+    for(let i=0; i<count; i++){
+        let item = TaskArray[i];
+        if(item.status == 1){
+            show = true;
+        }
+    }
+    if(show == true){
+        document.getElementById('remove').setAttribute('class','show');
+    }
+    else{
+        document.getElementById('remove').removeAttribute('class');
     }
 }
