@@ -92,7 +92,7 @@ header{
     }
     h2{
         .reset; // resets the styles to padding and margin 0 because we declared it at the top by creating a function
-        margin: 12px 2px;
+        margin: 18px 6px;
         font-size: 20px;
     }
     #remove{
@@ -158,5 +158,19 @@ footer{
         text-decoration:line-through;
         text-decoration-color:lighten(@main-color,30%);
         color:lighten(@main-color,45%);
+    }
+}
+
+
+@media only screen and (max-width:768px) {
+    .overlay{
+        .authform{
+            max-width:95%;
+        }
+    }
+    header{
+        h1{
+            font-size:1em;
+        }
     }
 }
