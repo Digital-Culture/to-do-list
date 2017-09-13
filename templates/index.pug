@@ -5,20 +5,26 @@ html
         content='width=device-width,initial-scale=1.0,user-scalable=no')
     title To Do List
     link(rel='stylesheet' href='style.css')
+    include firebase.pug
   body
     .appview
       header
+        h2#username
         button#remove 
           img(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAS1BMVEUAAABwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrv6iUyaAAAAGHRSTlMAAQYHHiMmKCwtLjBSd3h8f4WGicjV8/3Wan4bAAAAdUlEQVQ4je3OSQ6AIAxAUXCeRRzo/U8qQVQklpqw9a+a9oXA2F9c+ZyRpgFQJW20KoKmBtP2wcDiH/g9VtasqWcGEKQReikJ05u1DBpuD5M2CjHnS1q1uDn+5PRqPIWYh0KNowLmUkFjFWGMIg1j3ZiQ5i+qHRE3EE7aKR5DAAAAAElFTkSuQmCC')
         h1 To Do List
         h2
+          //log out button
+          a(href='#' id='logout') Log Out
+          
+          
       main.container
         ul#task-list
-          li Buy milk
-          li Get newspaper
-          li Call Doctor
-          li(data-status='0') Get milk
-          li(data-status='1') Get newspaper
+          // li Buy milk
+          // li Get newspaper
+          // li Call Doctor
+          // li(data-status='0') Get milk
+          // li(data-status='1') Get newspaper
       footer
         form#task-form
           input(type='text' 
@@ -28,3 +34,5 @@ html
                 class='add-button') Add
                 
       script(src='main.js')
+      // include templates
+      include authforms.pug

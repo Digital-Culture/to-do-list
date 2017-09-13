@@ -4,23 +4,39 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <title>To Do List</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyCyHVMnKelzeb4I-GDQP__gFnQgx1PUNvU",
+        authDomain: "todolist-37eed.firebaseapp.com",
+        databaseURL: "https://todolist-37eed.firebaseio.com",
+        projectId: "todolist-37eed",
+        storageBucket: "todolist-37eed.appspot.com",
+        messagingSenderId: "898788915005"
+      };
+      firebase.initializeApp(config);
+    </script>
   </head>
   <body>
     <div class="appview">
       <header>
+        <h2 id="username"></h2>
         <button id="remove">
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAS1BMVEUAAABwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrtwUrv6iUyaAAAAGHRSTlMAAQYHHiMmKCwtLjBSd3h8f4WGicjV8/3Wan4bAAAAdUlEQVQ4je3OSQ6AIAxAUXCeRRzo/U8qQVQklpqw9a+a9oXA2F9c+ZyRpgFQJW20KoKmBtP2wcDiH/g9VtasqWcGEKQReikJ05u1DBpuD5M2CjHnS1q1uDn+5PRqPIWYh0KNowLmUkFjFWGMIg1j3ZiQ5i+qHRE3EE7aKR5DAAAAAElFTkSuQmCC">
         </button>
         <h1>To Do List</h1>
-        <h2></h2>
+        <h2>
+          <!--log out button-->
+          <a href="#" id="logout">Log Out</a>
+        </h2>
       </header>
       <main class="container">
         <ul id="task-list">
-          <li>Buy milk</li>
-          <li>Get newspaper</li>
-          <li>Call Doctor</li>
-          <li data-status="0">Get milk</li>
-          <li data-status="1">Get newspaper</li>
+          <!-- li Buy milk-->
+          <!-- li Get newspaper-->
+          <!-- li Call Doctor-->
+          <!-- li(data-status='0') Get milk-->
+          <!-- li(data-status='1') Get newspaper-->
         </ul>
       </main>
       <footer>
@@ -30,6 +46,43 @@
         </form>
       </footer>
       <script src="main.js"></script>
+      <!-- include templates-->
+      <template id="signup-template">
+        <div class="overlay" id="signup-box">
+          <form class="authform" id="signup-form">
+            <h2>Sign up for an account</h2>
+            <label>Username</label>
+            <input type="text" name="username" id="username" placeholder="jane88">
+            <label>Email</label>
+            <input type="email" name="email" id="email" placeholder="jane88@domain.com">
+            <label>Password</label>
+            <input type="password" name="password" id="password" placeholder="minimum 6 chars">
+            <div class="button-container">
+              <button class="auth-button" type="submit">Sign Up</button>
+            </div>
+            <p>already have an account?
+              <a href="#" id="signin-link">sign in</a>
+            </p>
+          </form>
+        </div>
+      </template>
+      <template id="signin-template">
+        <div class="overlay" id="signin-box">
+          <form class="authform" id="signin-form">
+            <h2>Sign in to your account</h2>
+            <label>Email</label>
+            <input type="email" name="email" id="email" placeholder="jane88@domain.com">
+            <label>Password</label>
+            <input type="password" name="password" id="password" placeholder="minimum 6 chars">
+            <div class="button-container">
+              <button class="auth-button" type="submit">Sign In</button>
+            </div>
+            <p>don't have an account?
+              <a href="#" id="signup-link">sign up</a>
+            </p>
+          </form>
+        </div>
+      </template>
     </div>
   </body>
 </html>

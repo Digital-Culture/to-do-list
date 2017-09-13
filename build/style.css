@@ -11,9 +11,51 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.overlay .authform {
+  background-color: white;
+  max-width: 50%;
+  padding: 12px;
+  border: 2px solid #55dad5;
+  margin-top: -200px;
+  border-radius: 10px;
+}
+.overlay label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.overlay input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 1.2em;
+  border: 1px solid #bbbbbb;
+}
+.overlay .button-container {
+  margin-top: 15px;
+  text-align: center;
+}
+.overlay .button-container .auth-button {
+  color: white;
+  background-color: #583591;
+  border-radius: 4px;
+  padding: 10px;
 }
 header {
-  height: 5%;
+  height: 60px;
   background-color: #44c9e4;
   color: #87dced;
   display: flex;
@@ -23,6 +65,14 @@ header h1 {
   margin: 0;
   padding: 0;
   text-align: center;
+  font-size: 30px;
+  margin: 7px 2px;
+}
+header h2 {
+  margin: 0;
+  padding: 0;
+  margin: 12px 2px;
+  font-size: 20px;
 }
 header #remove {
   border: 1px solid transparent;
@@ -36,11 +86,19 @@ header #remove img {
 header #remove.show {
   opacity: 1;
 }
+header #logout {
+  color: white;
+  text-decoration: none;
+  padding: 15px 5px;
+}
 .container {
   flex: 1 0 auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+  /* height of container so it doesn't overlap with header */
 }
 footer {
-  height: 5%;
+  height: 60px;
   background-color: #5d0582;
   margin-bottom: 20px;
 }
